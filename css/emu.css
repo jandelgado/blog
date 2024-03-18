@@ -1,0 +1,51 @@
+.emularity-splash-screen {
+  color: white;
+  position: relative !important;
+  background-color: black;
+}
+.emularity-splash-screen .emularity-splash-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto
+}
+.emularity-splash-screen .emularity-splash-title {
+  display: block;
+  width: 100%;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  text-align: center;
+  font: 10px sans-serif
+}
+.emularity-splash-screen .emularity-progress-indicator {
+  color: white;
+  background-color: black;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: separate;
+  border-spacing: 2px
+}
+.emularity-splash-screen .emularity-progress-indicator tr {
+  text-align: center
+}
+.emularity-splash-screen .emularity-progress-indicator td {
+  position: relative;
+  padding-top: 4px
+}
+.emularity-splash-screen .emularity-progress-indicator td.emularity-download-success {
+  font-weight: bold;
+  color: black;
+  background-color: white
+}
+.emularity-splash-screen .emularity-progress-indicator td.emularity-download-failure {
+  font-weight: bold;
+  color: black;
+  background-color: red
+}
+.emularity-splash-screen .emularity-progress-indicator td .emularity-download-title {
+  white-space: nowrap
+}
+.emularity-splash-screen .emularity-progress-indicator td .emularity-download-status {
+  left: .5em
+}
+

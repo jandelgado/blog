@@ -1,0 +1,221 @@
+body {
+    font-family: Hack, Mono;
+}
+
+html {
+    font-size: 1em;
+    line-height: normal;
+    background: #282828;
+    color:      #ebdbb2;
+    line-height: 1.4em;
+}
+
+/* override from cupper css */
+
+* + * {
+    margin-top: 0;
+}
+
+main * + * {
+    margin-top: 2.25rem;
+}
+
+ul {
+    list-style-type: square;
+}
+
+img[src$='#center']
+{
+    display: block;
+    margin: 0.7rem auto; /* you can replace the vertical '0.7rem' by
+                            whatever floats your boat, but keep the
+                            horizontal 'auto' for this to work */
+    /* whatever else styles you fancy here */
+}
+
+.patterns {
+    list-style: none;
+    padding: 0;
+}
+
+/* After */
+.pattern [aria-current] {
+    background-color: orange;
+    clip-path: polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%);
+    color: white;
+    display: inline;
+}
+
+.navlist::before {
+    content: ">>";
+}
+
+.navlist {
+    padding-left:1em ;
+    margin-top: 42px;
+}
+
+.navlist-item {
+    display: inline;
+    margin-left: 0.7em;
+}
+
+.navlist > li:not(:last-child)::after {
+    /* content: "|"; */
+}
+
+[href="#main"] {
+    border: 0px;
+}
+
+.intro-and-nav {
+    border-right: 1px solid;
+}
+
+.intro-and-nav > div {
+    padding: 1.5em;
+}
+
+main {
+    margin: auto;
+    min-height: 50vh;
+}
+
+main ul, main ol {
+    line-height: 1.4em;
+}
+
+.tag-list {
+    list-style-type: none;
+}
+
+
+.main-and-footer  {
+    margin-left: 0rem;
+}
+
+.main-and-footer > div {
+    max-width: 45rem;
+    margin-left: 0rem;
+    margin: 0 auto;
+    padding: 1em;
+}
+
+@media only screen and (max-device-width: 736px) {
+    main {
+        padding: 0rem;
+    }
+    .navlist {
+        padding-left: 0em;
+        margin-top: 0;
+
+    }
+}
+
+::selection {
+    background: orange;
+}
+
+pre {
+    background-color: #3c3836;
+    border-radius: 0px;
+    padding: 0.7em;
+    border: 1;
+    border-color: orange;
+}
+
+/**
+figure > a > img {
+    border-width: 3px 4px 3px 3px;
+    border-radius: 1% 2% 1% 2%/3% 99% 1% 99%;
+    transform: 0.5deg;
+    border-style: solid;
+    border-color: #3c3836;
+}**/
+
+/**
+figure > a > img {
+    border: 1px solid #ebdbb2;
+}
+**/
+
+
+figcaption {
+    margin-top: 0 !important;
+}
+
+a, a:active, a:visited, a:focus {
+    color: orange;
+}
+
+a.logo:active, a.logo:focus {outline : none;}
+
+a:not(.logo):hover {
+    border: 0;
+    background-color: orange;
+    color: #1d2021;
+    text-decoration: none;
+}
+
+h4 {
+    font-size: 1.1em;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: Hack, Mono;
+    color:      #ebdbb2;
+}
+
+h1  {
+    padding-bottom: 0.5em;
+}
+
+blockquote {
+    border-left: 1px solid #bdae93;
+    margin: 0.5em 10px;
+    padding: 0.5em 10px;
+}
+
+footer {
+    align: center;
+}
+
+pre > code {
+    background-color: inherit;
+    padding: 0 0;
+}
+
+code {
+    padding: .2em .4em;
+    margin: 0;
+    font-size: 85%;
+    border-radius: 3px;
+    background-color: #3c3836;
+}
+
+
+.library-desc {
+    text-align: center;
+    font-size: 0.9em;
+}
+
+.title-container{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:stretch;
+}
+
+.title-box {
+    align-items: stretch;
+    padding-bottom: 1.5em;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .title-box {
+        align-items: stretch;
+        padding-bottom: 0.5em;
+        margin-top: 0;
+    }
+
+}
