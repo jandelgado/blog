@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Mame on JDBlog</title><link>https://jandelgado.github.io/blog/tags/mame/</link><description>Recent content in Mame on JDBlog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 20 Apr 2022 20:58:45 +0100</lastBuildDate><atom:link href="https://jandelgado.github.io/blog/tags/mame/index.xml" rel="self" type="application/rss+xml"/><item><title>Dumping old Olivetti M20 Floppy Disks</title><link>https://jandelgado.github.io/blog/blog/dumping-old-olivetti-m20-floppy-disks/</link><pubDate>Wed, 20 Apr 2022 20:58:45 +0100</pubDate><guid>https://jandelgado.github.io/blog/blog/dumping-old-olivetti-m20-floppy-disks/</guid><description>&lt;h2 id="the-olivetti-l1-m20"&gt;The Olivetti L1 M20&lt;/h2&gt;
+
+
+
+
+
+
+
+
+
+ 
+
+
+&lt;figure role="group" aria-describedby="caption-94dd34d77b311ed4f8e6c4607626baed"&gt;
+ &lt;a href="https://jandelgado.github.io/blog/blog/dumping-old-olivetti-m20-floppy-disks/m20-logo.jpg" class="img-link"&gt;
+ &lt;img src="https://jandelgado.github.io/blog/blog/dumping-old-olivetti-m20-floppy-disks/m20-logo_hu_5f361316e8caa1fe.jpg"&gt;
+ &lt;/a&gt;
+ &lt;figcaption id="caption-94dd34d77b311ed4f8e6c4607626baed"&gt;
+ Olivetti L1 M20
+ &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Back in the 1980&amp;rsquo;s my uncle owned a company for photo lithography. Eventually
+they needed a computer for adminstrative tasks and got a rather exotic Olivetti
+L1 M20. For the curious, &lt;a href="https://en.wikipedia.org/wiki/Olivetti_M20"&gt;the M20 has the following
+specs&lt;/a&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Zilog_Z8000"&gt;Zilog Z8001 16 Bit CPU&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;128kb to 512kb RAM&lt;/li&gt;
+&lt;li&gt;PCOS Operating System&lt;/li&gt;
+&lt;li&gt;Built 1982-1984&lt;/li&gt;
+&lt;li&gt;512x256 Graphics, 4 or 8 colors, depending on the available memory board
+in use. The M20 has no text mode and generates all graphics using pixels.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Years later, when the Olivetti was no longer used and I was asked if I would
+have &amp;ldquo;any use&amp;rdquo; for the machine, I of course said immeadialtely &amp;ldquo;yes&amp;rdquo;. Besides
+a few initial tests with the machine in the 1990&amp;rsquo;s, I never turned the machine
+on again (but maybe I will after this deep dive in M20 disk internals).&lt;/p&gt;</description></item></channel></rss>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Diy on JDBlog</title><link>https://jandelgado.github.io/blog/tags/diy/</link><description>Recent content in Diy on JDBlog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 09 Aug 2021 21:20:39 +0200</lastBuildDate><atom:link href="https://jandelgado.github.io/blog/tags/diy/index.xml" rel="self" type="application/rss+xml"/><item><title>Carl DIY MP3 player for kids</title><link>https://jandelgado.github.io/blog/blog/carl-diy-mp3-player-for-kids/</link><pubDate>Mon, 09 Aug 2021 21:20:39 +0200</pubDate><guid>https://jandelgado.github.io/blog/blog/carl-diy-mp3-player-for-kids/</guid><description>&lt;figure role="group" aria-describedby="caption-e4f00e87767fbdbbf2b201d450fc0b1d"&gt;
+ &lt;a href="https://jandelgado.github.io/blog/blog/carl-diy-mp3-player-for-kids/carl.png" class="img-link"&gt;
+ &lt;img src="https://jandelgado.github.io/blog/blog/carl-diy-mp3-player-for-kids/carl_hu_4deb4dbcfdf580d9.png"&gt;
+ &lt;/a&gt;
+ &lt;figcaption id="caption-e4f00e87767fbdbbf2b201d450fc0b1d"&gt;
+ Carl music box
+ &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Carl is a robust DIY MP3 player for kids. I already built Carl back in 2017,
+but it took until this summer that I also finished an &lt;a href="https://www.heise.de/select/make/2021/4/2116013300466638341"&gt;article for the german
+edition of the Make
+magazine&lt;/a&gt;
+describing how to build Carl. The case is made of an old wooden box for wine
+bottles. The MP3 playback and amplification is handled by an DFPlayerMini
+module, the MP3 files are stored on a mini SD card. An Arduino Pro Mini
+controls everything. 12 buttons are connected through a single analog input to
+the Arduino. This simplifies wiring and keeps usage of GPIO low. The 9 small
+buttons are used to select a playlist, the big arcade buttons control playback
+and song selection. Carl is powered by an USB powerbank and can be easily
+recharged. While writing the &lt;a href="https://github.com/jandelgado/carl"&gt;firmware for
+Carl&lt;/a&gt;, both
+&lt;a href="https://github.com/jandelgado/jled"&gt;JLed&lt;/a&gt; and
+&lt;a href="https://github.com/jandelgado/log4arduino"&gt;log4arduino&lt;/a&gt; originated as side
+projects.&lt;/p&gt;</description></item></channel></rss>

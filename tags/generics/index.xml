@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Generics on JDBlog</title><link>https://jandelgado.github.io/blog/tags/generics/</link><description>Recent content in Generics on JDBlog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 15 Dec 2021 19:03:45 +0100</lastBuildDate><atom:link href="https://jandelgado.github.io/blog/tags/generics/index.xml" rel="self" type="application/rss+xml"/><item><title>Go generics released</title><link>https://jandelgado.github.io/blog/blog/go-generics-released/</link><pubDate>Wed, 15 Dec 2021 19:03:45 +0100</pubDate><guid>https://jandelgado.github.io/blog/blog/go-generics-released/</guid><description>&lt;p&gt;Today a first official &lt;a href="https://go.dev/blog/go1.18beta1"&gt;beta version of go
+1.18&lt;/a&gt; was released, which introduces
+&lt;a href="https://go.dev/blog/why-generics"&gt;generics&lt;/a&gt; to the Go language. This is the
+most significant change to the language since the release of Go 1. However, it
+is a backwards compatible change, meaning old code should compile without
+changes.&lt;/p&gt;
+&lt;p&gt;Before the release of the 1.18 beta version, you had to &lt;a href="https://go.dev/doc/install/source"&gt;compile the go
+compiler from source&lt;/a&gt; in order to experiment
+with generics. That&amp;rsquo;s now easier, just &lt;a href="https://go.dev/dl/"&gt;download the new version
+here&lt;/a&gt;, look in the &amp;ldquo;unstable&amp;rdquo; section.&lt;/p&gt;</description></item></channel></rss>

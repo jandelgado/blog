@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Paperless on JDBlog</title><link>https://jandelgado.github.io/blog/tags/paperless/</link><description>Recent content in Paperless on JDBlog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 30 Dec 2022 20:15:45 +0100</lastBuildDate><atom:link href="https://jandelgado.github.io/blog/tags/paperless/index.xml" rel="self" type="application/rss+xml"/><item><title>Going paperless</title><link>https://jandelgado.github.io/blog/blog/going-paperless/</link><pubDate>Fri, 30 Dec 2022 20:15:45 +0100</pubDate><guid>https://jandelgado.github.io/blog/blog/going-paperless/</guid><description>&lt;h2 id="paperless-ngx"&gt;paperless-ngx&lt;/h2&gt;
+&lt;p&gt;Recently I stumbled over &lt;a href="https://news.ycombinator.com/item?id=30852035"&gt;this post on Hacker
+News&lt;/a&gt;, which linked to a tool
+called &lt;a href="https://github.com/paperless-ngx/paperless-ngx"&gt;paperless-ngx&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Paperless-ngx is a web application (based on Python and Django) that let&amp;rsquo;s you
+easily organize your scanned documents in a self hosted digital archive.&lt;/p&gt;
+&lt;p&gt;After collecting all sorts of correspondence for decades, I thought using a tool
+like paperless-ngx would be a welcome occasion to get rid of the tons of outdated
+documents no longer needed physically, but still having those documents in a
+digital archive.&lt;/p&gt;</description></item></channel></rss>

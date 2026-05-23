@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Samdisk on JDBlog</title><link>https://jandelgado.github.io/blog/tags/samdisk/</link><description>Recent content in Samdisk on JDBlog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 05 Mar 2021 10:58:45 +0100</lastBuildDate><atom:link href="https://jandelgado.github.io/blog/tags/samdisk/index.xml" rel="self" type="application/rss+xml"/><item><title>SAMdisk</title><link>https://jandelgado.github.io/blog/blog/samdisk/</link><pubDate>Fri, 05 Mar 2021 10:58:45 +0100</pubDate><guid>https://jandelgado.github.io/blog/blog/samdisk/</guid><description>&lt;p&gt;SAMDisk is a command line floppy disk utility. It&amp;rsquo;s used to read disks and
+convert disk images. I used it to &lt;a href="https://jandelgado.github.io/blog/blog/dumping-old-sharp-mz-800-floppy-disks/"&gt;convert some old Sharp MZ-800 floppy
+disks&lt;/a&gt; into the
+extended disk format (&lt;a href="https://simonowen.com/mirror/extdsk.html"&gt;EDSK&lt;/a&gt;)
+so I can use them in an emulator.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Homepage: &lt;a href="https://simonowen.com/samdisk/"&gt;https://simonowen.com/samdisk/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Github: &lt;a href="https://github.com/simonowen/samdisk"&gt;https://github.com/simonowen/samdisk&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="building-latest-github-version-with-ipf-support"&gt;Building latest github version with IPF support&lt;/h2&gt;
+&lt;p&gt;The IPF format (&lt;a href="http://www.softpres.org/glossary:ipf"&gt;image preservation
+format&lt;/a&gt;) is supported in the 4.0 version
+of SAMdisk. To build SAMdisk from source:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;get and build &lt;a href="https://github.com/simonowen/capsimage"&gt;https://github.com/simonowen/capsimage&lt;/a&gt; using
+&lt;code&gt;cmake . &amp;amp;&amp;amp; make &amp;amp;&amp;amp; sudo make install&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;get and build &lt;a href="https://github.com/simonowen/samdisk"&gt;https://github.com/simonowen/samdisk&lt;/a&gt; using
+&lt;code&gt;cmake . &amp;amp;&amp;amp; make &amp;amp;&amp;amp; sudo make install&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;$ samdisk
+SAMdisk 4.0 ALPHA (Feb 6 2021), (c) 2002-21 Simon Owen
+
+ SAMDISK [copy|scan|format|list|view|info|dir|rpm] &amp;lt;args&amp;gt;
+
+ -c, --cyls=N cylinder count (N) or range (A-B)
+ -h, --head=N single head select (0 or 1)
+ -s, --sector[s] sector count for format, or single sector select
+ -r, --retries=N retry count for bad sectors (default=5)
+ -R, --rescans=N rescan count for full track reads (default=0)
+ -d, --double-step step floppy head twice between tracks
+ -f, --force suppress confirmation prompts (careful!)
+
+The following apply to regular disk formats only:
+ -n, --no-format skip formatting stage when writing
+ -m, --minimal read/write only used MGT tracks
+ -g, --gap3=N override gap3 inter-sector spacing (default=0; auto)
+ -i, --interleave=N override sector interleave (default=1)
+ -k, --skew=N override inter-track skew (default=1)
+ -z, --size=N override sector size code (default=2; 512 bytes)
+ -b, --base=N override lowest sector number (default=1)
+ -0, --head[0|1]=N override head 0 or 1 value
+
+See https://simonowen.com/samdisk/ for further details.
+&lt;/code&gt;&lt;/pre&gt;</description></item></channel></rss>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Golang on JDBlog</title><link>https://jandelgado.github.io/blog/tags/golang/</link><description>Recent content in Golang on JDBlog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sun, 26 May 2024 20:06:00 +0100</lastBuildDate><atom:link href="https://jandelgado.github.io/blog/tags/golang/index.xml" rel="self" type="application/rss+xml"/><item><title>Relaxed JSON parsing in go</title><link>https://jandelgado.github.io/blog/blog/relaxed-json-parsing-in-go/</link><pubDate>Sun, 26 May 2024 20:06:00 +0100</pubDate><guid>https://jandelgado.github.io/blog/blog/relaxed-json-parsing-in-go/</guid><description>&lt;p&gt;In the past I encountered situations, where I needed a relaxed approach to
+parse JSON documents in Go, because of the server side sending occasionally
+unexpected data, which was beyond of my control.&lt;/p&gt;
+&lt;h2 id="case-1-api-inconsistently-returns-an-empty-array-instead-of-null"&gt;Case 1: API inconsistently returns an empty array instead of &lt;code&gt;null&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;When I was implementing a RabbitMQ client as part of my
+&lt;a href="https://github.com/jandelgado/rabtap"&gt;rabtap&lt;/a&gt; RabbitMQ tool, I
+stumbled over the problem, that the &lt;a href="https://rawcdn.githack.com/rabbitmq/rabbitmq-server/v3.13.2/deps/rabbitmq_management/priv/www/api/index.html"&gt;RabbitMQ management
+API&lt;/a&gt;
+returned an empty array (&lt;code&gt;[]&lt;/code&gt;) where an object was
+expected. When trying to unmarshal the JSON into a &lt;code&gt;struct&lt;/code&gt; like e.g.&lt;/p&gt;</description></item><item><title>Porting a Go CLI tool to Web Assembly</title><link>https://jandelgado.github.io/blog/blog/porting-a-go-cli-tool-to-web-assembly/</link><pubDate>Wed, 21 Jun 2023 22:23:45 +0100</pubDate><guid>https://jandelgado.github.io/blog/blog/porting-a-go-cli-tool-to-web-assembly/</guid><description>&lt;p&gt;In this blog post I&amp;rsquo;ll show how to run a golang command line application
+locally with a web assembly (WASM) runtime.&lt;/p&gt;
+&lt;h2 id="background"&gt;Background&lt;/h2&gt;
+&lt;p&gt;The current &lt;a href="https://golang.google.cn/blog/go1.21rc"&gt;release candidate of go 1.21&lt;/a&gt;
+adds an experimental port of the &lt;a href="https://wasi.dev/"&gt;Web Assembly System Interface (WASI)&lt;/a&gt;.
+While the go compiler could compile to WASM before, only the Javascript target
+was supported, which was targeting browsers.&lt;/p&gt;
+&lt;p&gt;WASI enables a WASM application to access operating-system features like files
+and sockets, while being independet of browsers. This allows to compile a go
+application to WASM and to run it with a WASM runtime like &lt;a href="https://github.com/stealthrocket/wasi-go"&gt;wasirun&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>Go generics released</title><link>https://jandelgado.github.io/blog/blog/go-generics-released/</link><pubDate>Wed, 15 Dec 2021 19:03:45 +0100</pubDate><guid>https://jandelgado.github.io/blog/blog/go-generics-released/</guid><description>&lt;p&gt;Today a first official &lt;a href="https://go.dev/blog/go1.18beta1"&gt;beta version of go
+1.18&lt;/a&gt; was released, which introduces
+&lt;a href="https://go.dev/blog/why-generics"&gt;generics&lt;/a&gt; to the Go language. This is the
+most significant change to the language since the release of Go 1. However, it
+is a backwards compatible change, meaning old code should compile without
+changes.&lt;/p&gt;
+&lt;p&gt;Before the release of the 1.18 beta version, you had to &lt;a href="https://go.dev/doc/install/source"&gt;compile the go
+compiler from source&lt;/a&gt; in order to experiment
+with generics. That&amp;rsquo;s now easier, just &lt;a href="https://go.dev/dl/"&gt;download the new version
+here&lt;/a&gt;, look in the &amp;ldquo;unstable&amp;rdquo; section.&lt;/p&gt;</description></item></channel></rss>

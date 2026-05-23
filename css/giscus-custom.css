@@ -1,0 +1,23 @@
+@import url("https://giscus.app/themes/transparent_dark.css");
+
+.gsc-reactions-count,
+.gsc-comments-count {
+    font-weight: normal;
+    font-size: 0.875em;
+}
+
+.gsc-comments {
+    gap: 0.75rem;
+}
+
+.gsc-comment-content {
+    padding: 0.5rem;
+}
+
+.gsc-reply {
+    padding: 0.5rem 0.5rem 0.25rem;
+}
+
+.gsc-replies {
+    padding-top: 0.25rem;
+}

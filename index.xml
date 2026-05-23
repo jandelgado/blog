@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>JDBlog</title><link>https://jandelgado.github.io/blog/</link><description>Recent content on JDBlog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 14 May 2026 20:26:00 +0100</lastBuildDate><atom:link href="https://jandelgado.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>CircuitPython on an old ESP32</title><link>https://jandelgado.github.io/blog/blog/circuitpython-on-an-old-esp32/</link><pubDate>Thu, 14 May 2026 20:26:00 +0100</pubDate><guid>https://jandelgado.github.io/blog/blog/circuitpython-on-an-old-esp32/</guid><description>&lt;figure role="group" aria-describedby="caption-018ccceb13ae4f2ead7061bc6d1b9ec0"&gt;
+ &lt;a href="https://jandelgado.github.io/blog/blog/circuitpython-on-an-old-esp32/images/product.jpg" class="img-link"&gt;
+ &lt;img src="https://jandelgado.github.io/blog/blog/circuitpython-on-an-old-esp32/images/product_hu_97fdba30578d0ed8.jpg"&gt;
+ &lt;/a&gt;
+ &lt;figcaption id="caption-018ccceb13ae4f2ead7061bc6d1b9ec0"&gt;
+ ESP32 driving an e-Ink display
+ &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Recently I got an e-Ink display which I wanted to test with
+&lt;a href="https://circuitpython.org"&gt;CircuitPython&lt;/a&gt;. Since I have some classic ESP32 devkits lying around, I
+wanted to use one of these.&lt;/p&gt;
+&lt;p&gt;In this post I will show how I flashed the microcontroller and how I installed scripts, Python
+modules and other resources to the ESP32 using a serial connection and Wi-Fi.&lt;/p&gt;
+&lt;p&gt;What is the challenge with classic ESP32s? Modern microcontrollers like the Raspberry Pi Pico
+(RP2040) expose a &lt;code&gt;CIRCUITPY&lt;/code&gt; filesystem over USB mass storage (&lt;code&gt;MSC&lt;/code&gt;), so they behave like a USB
+stick. Older boards such as the classic ESP32 (&lt;code&gt;ESP-WROOM-32&lt;/code&gt;) lack this feature, which makes
+copying files to and from the device a bit harder.&lt;/p&gt;</description></item><item><title>Optimizing division and modulo operations on a microcontroller</title><link>https://jandelgado.github.io/blog/blog/optimizing-division-and-modulo-operations-on-a-microcontroller/</link><pubDate>Mon, 30 Mar 2026 12:15:00 +0100</pubDate><guid>https://jandelgado.github.io/blog/blog/optimizing-division-and-modulo-operations-on-a-microcontroller/</guid><description>&lt;p&gt;In this article I&amp;rsquo;ll show how I optimized a costly division operation in a performance
+constrained embedded environment, what effect the optimization had, and why I finally
+decided against it.&lt;/p&gt;
+&lt;h2 id="getting-rid-of-the-division"&gt;Getting rid of the division&lt;/h2&gt;
+
+
+
+
+
+
+
+
+
+ 
+
+
+&lt;figure role="group" aria-describedby="caption-496714527f8c0cda8fff1cfbdc92613a"&gt;
+ &lt;a href="https://jandelgado.github.io/blog/blog/optimizing-division-and-modulo-operations-on-a-microcontroller/jled.gif" class="img-link"&gt;
+ &lt;img src="https://jandelgado.github.io/blog/blog/optimizing-division-and-modulo-operations-on-a-microcontroller/jled_hu_fd2b4b08d7be2db4.gif"&gt;
+ &lt;/a&gt;
+ &lt;figcaption id="caption-496714527f8c0cda8fff1cfbdc92613a"&gt;
+ JLed in action. Calculating the effects needs costly integer division operations.
+ &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;I recently did some benchmarks on my &lt;a href="https://github.com/jandelgado/jled"&gt;JLed&lt;/a&gt; library (an embedded
+library for microcontrollers to control LEDs with various effects) and compared the performance of
+the &lt;code&gt;fade&lt;/code&gt; effect function on various microcontrollers. Basically the function uses a look-up-table
+and calculates the target value using linear interpolation, avoiding floating point and divisions
+mostly. In the original version there is still one division operation left in the calculation of
+&lt;code&gt;tnorm&lt;/code&gt; (see code below). Since not every microcontroller has hardware division built-in (e.g. AVR
+8-bit), or uses it by default (&lt;a href="https://www.raspberrypi.com/documentation/pico-sdk/runtime.html#group_pico_divider"&gt;see RP2040 pico
+divider&lt;/a&gt;), it is
+a costly operation, especially when called in the &amp;ldquo;hot path&amp;rdquo;, possibly thousands of times per
+second:&lt;/p&gt;</description></item><item><title>Fixing Windows Update the hard way</title><link>https://jandelgado.github.io/blog/blog/fixing-windows-update-the-hard-way/</link><pubDate>Sun, 30 Nov 2025 17:30:39 +0200</pubDate><guid>https://jandelgado.github.io/blog/blog/fixing-windows-update-the-hard-way/</guid><description>&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;&lt;br/&gt;
+Windows 10 refused to install the 22H2 update and none of the usual fixes helped. Eventually, I found
+out, that a file issue on the EFI-partition prevented the update from successfully finishing.
+After a simple fix, the update finally went through successfully.&lt;/p&gt;
+&lt;h2 id="windows-update-refuses-to-install"&gt;Windows update refuses to install&lt;/h2&gt;
+&lt;p&gt;Being the family IT guy unfortunately qualifies me for the thankless job of fixing stubborn Windows
+problems every now and then. This time I was confronted with my moms Windows 10 laptop (Lenovo T470s) not
+installing the &lt;code&gt;KB5066791&lt;/code&gt; &amp;ldquo;22H2&amp;rdquo; update. Every attempt ended abruptly at the very end
+(100% of the installation reported to be finished) with something like &lt;code&gt;we couldn't complete the update, undoing the changes.&lt;/code&gt; (by the way, who exactly is ‘we’? I would have had a couple of questions).&lt;/p&gt;</description></item><item><title>Turing Complete: The 'Condition 10' Achievement</title><link>https://jandelgado.github.io/blog/blog/turing-complete-the-condition-10-achievement/</link><pubDate>Sat, 19 Jul 2025 13:43:51 +0100</pubDate><guid>https://jandelgado.github.io/blog/blog/turing-complete-the-condition-10-achievement/</guid><description>&lt;h2 id="the-condition-level-in-turing-complete"&gt;The &amp;lsquo;Condition&amp;rsquo; level in Turing Complete&lt;/h2&gt;
+&lt;p&gt;I recently re-started playing the computer-science game &lt;a href="https://turingcomplete.game"&gt;Turing
+Complete&lt;/a&gt;, where your job is to build and program a
+computer from scratch, starting with simple logic gates like AND, OR or
+NAND, and successively building more complex components until we have a
+functioning computer.&lt;/p&gt;
+&lt;p&gt;The objective of the &lt;em&gt;Condition&lt;/em&gt; level is to create a comparison unit. Such a
+unit takes a byte &lt;code&gt;A&lt;/code&gt; and a mode &lt;code&gt;M&lt;/code&gt; (3 bits) and calculates the output according
+to the mode as&lt;/p&gt;</description></item><item><title>Relaxed JSON parsing in go</title><link>https://jandelgado.github.io/blog/blog/relaxed-json-parsing-in-go/</link><pubDate>Sun, 26 May 2024 20:06:00 +0100</pubDate><guid>https://jandelgado.github.io/blog/blog/relaxed-json-parsing-in-go/</guid><description>&lt;p&gt;In the past I encountered situations, where I needed a relaxed approach to
+parse JSON documents in Go, because of the server side sending occasionally
+unexpected data, which was beyond of my control.&lt;/p&gt;
+&lt;h2 id="case-1-api-inconsistently-returns-an-empty-array-instead-of-null"&gt;Case 1: API inconsistently returns an empty array instead of &lt;code&gt;null&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;When I was implementing a RabbitMQ client as part of my
+&lt;a href="https://github.com/jandelgado/rabtap"&gt;rabtap&lt;/a&gt; RabbitMQ tool, I
+stumbled over the problem, that the &lt;a href="https://rawcdn.githack.com/rabbitmq/rabbitmq-server/v3.13.2/deps/rabbitmq_management/priv/www/api/index.html"&gt;RabbitMQ management
+API&lt;/a&gt;
+returned an empty array (&lt;code&gt;[]&lt;/code&gt;) where an object was
+expected. When trying to unmarshal the JSON into a &lt;code&gt;struct&lt;/code&gt; like e.g.&lt;/p&gt;</description></item><item><title>Random screen freezes on a Thinkpad X260</title><link>https://jandelgado.github.io/blog/blog/random-screen-freezes-on-a-thinkpad-x260/</link><pubDate>Sat, 04 May 2024 22:20:05 +0100</pubDate><guid>https://jandelgado.github.io/blog/blog/random-screen-freezes-on-a-thinkpad-x260/</guid><description>&lt;p&gt;Recently, I upgraded my Thinkpad X260 (i7 Skylake with Intel HD 520 Graphics)
+from Fedora 39 to 40. After the upgrade, I noticed random screen freezes (e.g.
+in Firefox), which lasted up to a few seconds and were extremly annoying. The
+problem occured in X11 with the KMS and Intel-drivers, as well as with Wayland
+(sway). Logs and my investigations with &lt;code&gt;perf&lt;/code&gt; and other tools showed no
+noticeable problems. It drove me crazy. I disabled swap, set &lt;a href="https://wiki.archlinux.org/title/Intel_graphics#Crash/freeze_on_low_power_Intel_CPUs"&gt;kernel
+parameters&lt;/a&gt;,
+and tried other things, but all without success. The random screen freezes
+remained. Almost giving up, I was preparing to install a different
+distribution, I stumbled over &lt;a href="https://www.reddit.com/r/thinkpad/comments/rhbf8m/solution_thinkpad_short_freezes_on_gnulinux/"&gt;this post on
+reddit&lt;/a&gt;,
+which suggests to set the kernel parameter &lt;code&gt;i915.enable_psr&lt;/code&gt; (Panel Self
+Refresh) to &lt;code&gt;0&lt;/code&gt;. Added that to the grub configuration, rebooted, and now the
+freezes are gone - finally.&lt;/p&gt;</description></item><item><title>Atari XL tape preservation and autopsy</title><link>https://jandelgado.github.io/blog/blog/atari-xl-tape-preservation-and-autopsy/</link><pubDate>Sun, 17 Mar 2024 13:57:32 +0100</pubDate><guid>https://jandelgado.github.io/blog/blog/atari-xl-tape-preservation-and-autopsy/</guid><description>&lt;p&gt;My first-ever computer was the &lt;a href="https://en.wikipedia.org/wiki/Atari_8-bit_family"&gt;Atari
+600XL&lt;/a&gt; with an Atari 1010
+Datasette. Recently I stumbled upon some old cassette tapes, one of which I
+used with my Atari (while the others were utilized with my Sharp MZ-800, which
+I will cover in a later story). Let&amp;rsquo;s see if I can recover the data from the
+tapes after such a long time and if it&amp;rsquo;s possible to make the actual bits visible
+with an audio editing software like Audacity.&lt;/p&gt;</description></item><item><title>Clipboard with VNC, libvirt and Qemu</title><link>https://jandelgado.github.io/blog/blog/clipboard-with-vnc-libvirt-and-qemu/</link><pubDate>Sat, 30 Dec 2023 17:53:39 +0200</pubDate><guid>https://jandelgado.github.io/blog/blog/clipboard-with-vnc-libvirt-and-qemu/</guid><description>&lt;p&gt;One real PITA when using virtual machines is getting things like clipboard,
+graphics acceleration etc. up and running. This is a common issue I&amp;rsquo;ve
+encountered with several virtualization products I used in the past (e.g.,
+VirtualBox, VMWare, Qemu).&lt;/p&gt;
+&lt;p&gt;Recently, RedHat &lt;a href="https://bugzilla.redhat.com/show_bug.cgi?id=2030592"&gt;dropped Spice support in RHEL
+9&lt;/a&gt; for virt-manager and
+Qemu. I decided to switch to VNC instead of compiling my own Qemu
+with built-in Spice support. Since I don’t require USB passthrough, sound, or
+other Spice-exclusive features, I thought it was worth (again) a try. After configuring
+VNC, everything worked except for the clipboard integration. However, after
+some research, I successfully resolved this by adding the following XML snippet
+to my machine’s definition (I am using libvirt on Rocky Linux 9):&lt;/p&gt;</description></item><item><title>Porting a Go CLI tool to Web Assembly</title><link>https://jandelgado.github.io/blog/blog/porting-a-go-cli-tool-to-web-assembly/</link><pubDate>Wed, 21 Jun 2023 22:23:45 +0100</pubDate><guid>https://jandelgado.github.io/blog/blog/porting-a-go-cli-tool-to-web-assembly/</guid><description>&lt;p&gt;In this blog post I&amp;rsquo;ll show how to run a golang command line application
+locally with a web assembly (WASM) runtime.&lt;/p&gt;
+&lt;h2 id="background"&gt;Background&lt;/h2&gt;
+&lt;p&gt;The current &lt;a href="https://golang.google.cn/blog/go1.21rc"&gt;release candidate of go 1.21&lt;/a&gt;
+adds an experimental port of the &lt;a href="https://wasi.dev/"&gt;Web Assembly System Interface (WASI)&lt;/a&gt;.
+While the go compiler could compile to WASM before, only the Javascript target
+was supported, which was targeting browsers.&lt;/p&gt;
+&lt;p&gt;WASI enables a WASM application to access operating-system features like files
+and sockets, while being independet of browsers. This allows to compile a go
+application to WASM and to run it with a WASM runtime like &lt;a href="https://github.com/stealthrocket/wasi-go"&gt;wasirun&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>WifiOnICE @ DB with Linux and my Lenovo X260</title><link>https://jandelgado.github.io/blog/blog/wifionice-@-db-with-linux-and-my-lenovo-x260/</link><pubDate>Mon, 05 Jun 2023 11:45:45 +0100</pubDate><guid>https://jandelgado.github.io/blog/blog/wifionice-@-db-with-linux-and-my-lenovo-x260/</guid><description>&lt;figure role="group" aria-describedby="caption-17df680baa805abc641d05def1f9ccd7"&gt;
+ &lt;a href="https://jandelgado.github.io/blog/blog/wifionice-@-db-with-linux-and-my-lenovo-x260/wifi_gestoert.png" class="img-link"&gt;
+ &lt;img src="https://jandelgado.github.io/blog/blog/wifionice-@-db-with-linux-and-my-lenovo-x260/wifi_gestoert_hu_1e44f02e6cce3d70.png"&gt;
+ &lt;/a&gt;
+ &lt;figcaption id="caption-17df680baa805abc641d05def1f9ccd7"&gt;
+ Authors dramatization of events
+ &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;I&amp;rsquo;m writing this while travelling with Deutsche Bahn to Munich, when I was
+haunted by longly forgotten memories of manual WiFi configurations and tweaking
+sessions: I had a hard time connecting my Lenovo X260 (with Fedora Linux) to
+the ICE&amp;rsquo;s on-board WiFi network.&lt;/p&gt;
+&lt;h2 id="first-problem-deauthentications"&gt;First problem: deauthentications&lt;/h2&gt;
+&lt;p&gt;First I realized that the my notebook was reconnecting all the time. Digging into
+syslog (&lt;code&gt;dmesg -w&lt;/code&gt;), I saw lots of &lt;code&gt;PREV_AUTH_NOT_VALID&lt;/code&gt; messges showing up:&lt;/p&gt;</description></item><item><title>Going paperless</title><link>https://jandelgado.github.io/blog/blog/going-paperless/</link><pubDate>Fri, 30 Dec 2022 20:15:45 +0100</pubDate><guid>https://jandelgado.github.io/blog/blog/going-paperless/</guid><description>&lt;h2 id="paperless-ngx"&gt;paperless-ngx&lt;/h2&gt;
+&lt;p&gt;Recently I stumbled over &lt;a href="https://news.ycombinator.com/item?id=30852035"&gt;this post on Hacker
+News&lt;/a&gt;, which linked to a tool
+called &lt;a href="https://github.com/paperless-ngx/paperless-ngx"&gt;paperless-ngx&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Paperless-ngx is a web application (based on Python and Django) that let&amp;rsquo;s you
+easily organize your scanned documents in a self hosted digital archive.&lt;/p&gt;
+&lt;p&gt;After collecting all sorts of correspondence for decades, I thought using a tool
+like paperless-ngx would be a welcome occasion to get rid of the tons of outdated
+documents no longer needed physically, but still having those documents in a
+digital archive.&lt;/p&gt;</description></item><item><title>Dumping old Olivetti M20 Floppy Disks</title><link>https://jandelgado.github.io/blog/blog/dumping-old-olivetti-m20-floppy-disks/</link><pubDate>Wed, 20 Apr 2022 20:58:45 +0100</pubDate><guid>https://jandelgado.github.io/blog/blog/dumping-old-olivetti-m20-floppy-disks/</guid><description>&lt;h2 id="the-olivetti-l1-m20"&gt;The Olivetti L1 M20&lt;/h2&gt;
+
+
+
+
+
+
+
+
+
+ 
+
+
+&lt;figure role="group" aria-describedby="caption-94dd34d77b311ed4f8e6c4607626baed"&gt;
+ &lt;a href="https://jandelgado.github.io/blog/blog/dumping-old-olivetti-m20-floppy-disks/m20-logo.jpg" class="img-link"&gt;
+ &lt;img src="https://jandelgado.github.io/blog/blog/dumping-old-olivetti-m20-floppy-disks/m20-logo_hu_5f361316e8caa1fe.jpg"&gt;
+ &lt;/a&gt;
+ &lt;figcaption id="caption-94dd34d77b311ed4f8e6c4607626baed"&gt;
+ Olivetti L1 M20
+ &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Back in the 1980&amp;rsquo;s my uncle owned a company for photo lithography. Eventually
+they needed a computer for adminstrative tasks and got a rather exotic Olivetti
+L1 M20. For the curious, &lt;a href="https://en.wikipedia.org/wiki/Olivetti_M20"&gt;the M20 has the following
+specs&lt;/a&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Zilog_Z8000"&gt;Zilog Z8001 16 Bit CPU&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;128kb to 512kb RAM&lt;/li&gt;
+&lt;li&gt;PCOS Operating System&lt;/li&gt;
+&lt;li&gt;Built 1982-1984&lt;/li&gt;
+&lt;li&gt;512x256 Graphics, 4 or 8 colors, depending on the available memory board
+in use. The M20 has no text mode and generates all graphics using pixels.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Years later, when the Olivetti was no longer used and I was asked if I would
+have &amp;ldquo;any use&amp;rdquo; for the machine, I of course said immeadialtely &amp;ldquo;yes&amp;rdquo;. Besides
+a few initial tests with the machine in the 1990&amp;rsquo;s, I never turned the machine
+on again (but maybe I will after this deep dive in M20 disk internals).&lt;/p&gt;</description></item><item><title>Go generics released</title><link>https://jandelgado.github.io/blog/blog/go-generics-released/</link><pubDate>Wed, 15 Dec 2021 19:03:45 +0100</pubDate><guid>https://jandelgado.github.io/blog/blog/go-generics-released/</guid><description>&lt;p&gt;Today a first official &lt;a href="https://go.dev/blog/go1.18beta1"&gt;beta version of go
+1.18&lt;/a&gt; was released, which introduces
+&lt;a href="https://go.dev/blog/why-generics"&gt;generics&lt;/a&gt; to the Go language. This is the
+most significant change to the language since the release of Go 1. However, it
+is a backwards compatible change, meaning old code should compile without
+changes.&lt;/p&gt;
+&lt;p&gt;Before the release of the 1.18 beta version, you had to &lt;a href="https://go.dev/doc/install/source"&gt;compile the go
+compiler from source&lt;/a&gt; in order to experiment
+with generics. That&amp;rsquo;s now easier, just &lt;a href="https://go.dev/dl/"&gt;download the new version
+here&lt;/a&gt;, look in the &amp;ldquo;unstable&amp;rdquo; section.&lt;/p&gt;</description></item><item><title>Carl DIY MP3 player for kids</title><link>https://jandelgado.github.io/blog/blog/carl-diy-mp3-player-for-kids/</link><pubDate>Mon, 09 Aug 2021 21:20:39 +0200</pubDate><guid>https://jandelgado.github.io/blog/blog/carl-diy-mp3-player-for-kids/</guid><description>&lt;figure role="group" aria-describedby="caption-e4f00e87767fbdbbf2b201d450fc0b1d"&gt;
+ &lt;a href="https://jandelgado.github.io/blog/blog/carl-diy-mp3-player-for-kids/carl.png" class="img-link"&gt;
+ &lt;img src="https://jandelgado.github.io/blog/blog/carl-diy-mp3-player-for-kids/carl_hu_4deb4dbcfdf580d9.png"&gt;
+ &lt;/a&gt;
+ &lt;figcaption id="caption-e4f00e87767fbdbbf2b201d450fc0b1d"&gt;
+ Carl music box
+ &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Carl is a robust DIY MP3 player for kids. I already built Carl back in 2017,
+but it took until this summer that I also finished an &lt;a href="https://www.heise.de/select/make/2021/4/2116013300466638341"&gt;article for the german
+edition of the Make
+magazine&lt;/a&gt;
+describing how to build Carl. The case is made of an old wooden box for wine
+bottles. The MP3 playback and amplification is handled by an DFPlayerMini
+module, the MP3 files are stored on a mini SD card. An Arduino Pro Mini
+controls everything. 12 buttons are connected through a single analog input to
+the Arduino. This simplifies wiring and keeps usage of GPIO low. The 9 small
+buttons are used to select a playlist, the big arcade buttons control playback
+and song selection. Carl is powered by an USB powerbank and can be easily
+recharged. While writing the &lt;a href="https://github.com/jandelgado/carl"&gt;firmware for
+Carl&lt;/a&gt;, both
+&lt;a href="https://github.com/jandelgado/jled"&gt;JLed&lt;/a&gt; and
+&lt;a href="https://github.com/jandelgado/log4arduino"&gt;log4arduino&lt;/a&gt; originated as side
+projects.&lt;/p&gt;</description></item><item><title>3.65x1E6 steps</title><link>https://jandelgado.github.io/blog/blog/3.65x1e6-steps/</link><pubDate>Fri, 16 Apr 2021 20:30:39 +0200</pubDate><guid>https://jandelgado.github.io/blog/blog/3.65x1e6-steps/</guid><description>&lt;p&gt;Since mid of March 2020 I am now working remotely from my home &amp;ldquo;office&amp;rdquo;. Since
+I realized that I even sit more and move less when working from home, I started
+to walk at least 10000 steps &lt;i&gt;every&lt;/i&gt; day. Be it sunny, rainy, snowy, cold
+or hot, does not matter. Just reaching the 10000 steps matters. That&amp;rsquo;s a good
+balance to work and gives great opportunity to listening to lot&amp;rsquo;s of podcasts.
+On April 8th 2021, I hit the magical mark of walking 10000 steps, every day for
+365 days in a row:&lt;/p&gt;</description></item><item><title>Using github pages with a private repo</title><link>https://jandelgado.github.io/blog/blog/using-github-pages-with-a-private-repo/</link><pubDate>Thu, 18 Mar 2021 14:59:51 +0100</pubDate><guid>https://jandelgado.github.io/blog/blog/using-github-pages-with-a-private-repo/</guid><description>&lt;p&gt;Normally github pages can only be used with a public repository. But say for
+example you want to publish a blog, and do not want to have everything
+available on a public github repo, especially when blog post are still in
+&amp;ldquo;draft&amp;rdquo; status.&lt;/p&gt;
+&lt;p&gt;The solution is simple: we use a private repo (&lt;code&gt;blog-private&lt;/code&gt;) to keep our blog
+sources (input to hugo) and whenever we push to the main branch, a github
+action is triggered that builds the actual hugo site and pushes the files to a
+public repo which which github pages activated:&lt;/p&gt;</description></item><item><title>Dumping old Sharp MZ-800 Floppy Disks</title><link>https://jandelgado.github.io/blog/blog/dumping-old-sharp-mz-800-floppy-disks/</link><pubDate>Wed, 10 Mar 2021 10:18:45 +0100</pubDate><guid>https://jandelgado.github.io/blog/blog/dumping-old-sharp-mz-800-floppy-disks/</guid><description>&lt;figure role="group" aria-describedby="caption-265d8b771b2f5102a0c5418447cfb019"&gt;
+ &lt;a href="https://jandelgado.github.io/blog/blog/dumping-old-sharp-mz-800-floppy-disks/mz800.jpg" class="img-link"&gt;
+ &lt;img src="https://jandelgado.github.io/blog/blog/dumping-old-sharp-mz-800-floppy-disks/mz800_hu_29245d9e717b8627.jpg"&gt;
+ &lt;/a&gt;
+ &lt;figcaption id="caption-265d8b771b2f5102a0c5418447cfb019"&gt;
+ My old sharp MZ-800, needing some brush up. On top the original
+floppy cable and parts of the MZ-1F19 floppy disk drive, as well as a
+shugart-adapter. The original case of the MZ-1F19 was misused in the 90ies to
+host a CD writer an is now lost.
+ &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;After the Atari 600XL, the Sharp MZ-800 was my second computer, back in the
+80ies. Since I still had the computer and a box of more 35 year old 5.25&amp;quot;
+floppy disks, I was curious to see my early works as a teen aged programmer.&lt;/p&gt;</description></item><item><title>SAMdisk</title><link>https://jandelgado.github.io/blog/blog/samdisk/</link><pubDate>Fri, 05 Mar 2021 10:58:45 +0100</pubDate><guid>https://jandelgado.github.io/blog/blog/samdisk/</guid><description>&lt;p&gt;SAMDisk is a command line floppy disk utility. It&amp;rsquo;s used to read disks and
+convert disk images. I used it to &lt;a href="https://jandelgado.github.io/blog/blog/dumping-old-sharp-mz-800-floppy-disks/"&gt;convert some old Sharp MZ-800 floppy
+disks&lt;/a&gt; into the
+extended disk format (&lt;a href="https://simonowen.com/mirror/extdsk.html"&gt;EDSK&lt;/a&gt;)
+so I can use them in an emulator.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Homepage: &lt;a href="https://simonowen.com/samdisk/"&gt;https://simonowen.com/samdisk/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Github: &lt;a href="https://github.com/simonowen/samdisk"&gt;https://github.com/simonowen/samdisk&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="building-latest-github-version-with-ipf-support"&gt;Building latest github version with IPF support&lt;/h2&gt;
+&lt;p&gt;The IPF format (&lt;a href="http://www.softpres.org/glossary:ipf"&gt;image preservation
+format&lt;/a&gt;) is supported in the 4.0 version
+of SAMdisk. To build SAMdisk from source:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;get and build &lt;a href="https://github.com/simonowen/capsimage"&gt;https://github.com/simonowen/capsimage&lt;/a&gt; using
+&lt;code&gt;cmake . &amp;amp;&amp;amp; make &amp;amp;&amp;amp; sudo make install&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;get and build &lt;a href="https://github.com/simonowen/samdisk"&gt;https://github.com/simonowen/samdisk&lt;/a&gt; using
+&lt;code&gt;cmake . &amp;amp;&amp;amp; make &amp;amp;&amp;amp; sudo make install&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;$ samdisk
+SAMdisk 4.0 ALPHA (Feb 6 2021), (c) 2002-21 Simon Owen
+
+ SAMDISK [copy|scan|format|list|view|info|dir|rpm] &amp;lt;args&amp;gt;
+
+ -c, --cyls=N cylinder count (N) or range (A-B)
+ -h, --head=N single head select (0 or 1)
+ -s, --sector[s] sector count for format, or single sector select
+ -r, --retries=N retry count for bad sectors (default=5)
+ -R, --rescans=N rescan count for full track reads (default=0)
+ -d, --double-step step floppy head twice between tracks
+ -f, --force suppress confirmation prompts (careful!)
+
+The following apply to regular disk formats only:
+ -n, --no-format skip formatting stage when writing
+ -m, --minimal read/write only used MGT tracks
+ -g, --gap3=N override gap3 inter-sector spacing (default=0; auto)
+ -i, --interleave=N override sector interleave (default=1)
+ -k, --skew=N override inter-track skew (default=1)
+ -z, --size=N override sector size code (default=2; 512 bytes)
+ -b, --base=N override lowest sector number (default=1)
+ -0, --head[0|1]=N override head 0 or 1 value
+
+See https://simonowen.com/samdisk/ for further details.
+&lt;/code&gt;&lt;/pre&gt;</description></item></channel></rss>

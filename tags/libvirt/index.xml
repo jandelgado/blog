@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Libvirt on JDBlog</title><link>https://jandelgado.github.io/blog/tags/libvirt/</link><description>Recent content in Libvirt on JDBlog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sat, 30 Dec 2023 17:53:39 +0200</lastBuildDate><atom:link href="https://jandelgado.github.io/blog/tags/libvirt/index.xml" rel="self" type="application/rss+xml"/><item><title>Clipboard with VNC, libvirt and Qemu</title><link>https://jandelgado.github.io/blog/blog/clipboard-with-vnc-libvirt-and-qemu/</link><pubDate>Sat, 30 Dec 2023 17:53:39 +0200</pubDate><guid>https://jandelgado.github.io/blog/blog/clipboard-with-vnc-libvirt-and-qemu/</guid><description>&lt;p&gt;One real PITA when using virtual machines is getting things like clipboard,
+graphics acceleration etc. up and running. This is a common issue I&amp;rsquo;ve
+encountered with several virtualization products I used in the past (e.g.,
+VirtualBox, VMWare, Qemu).&lt;/p&gt;
+&lt;p&gt;Recently, RedHat &lt;a href="https://bugzilla.redhat.com/show_bug.cgi?id=2030592"&gt;dropped Spice support in RHEL
+9&lt;/a&gt; for virt-manager and
+Qemu. I decided to switch to VNC instead of compiling my own Qemu
+with built-in Spice support. Since I don’t require USB passthrough, sound, or
+other Spice-exclusive features, I thought it was worth (again) a try. After configuring
+VNC, everything worked except for the clipboard integration. However, after
+some research, I successfully resolved this by adding the following XML snippet
+to my machine’s definition (I am using libvirt on Rocky Linux 9):&lt;/p&gt;</description></item></channel></rss>

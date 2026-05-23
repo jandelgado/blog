@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>E-Ink on JDBlog</title><link>https://jandelgado.github.io/blog/tags/e-ink/</link><description>Recent content in E-Ink on JDBlog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 14 May 2026 20:26:00 +0100</lastBuildDate><atom:link href="https://jandelgado.github.io/blog/tags/e-ink/index.xml" rel="self" type="application/rss+xml"/><item><title>CircuitPython on an old ESP32</title><link>https://jandelgado.github.io/blog/blog/circuitpython-on-an-old-esp32/</link><pubDate>Thu, 14 May 2026 20:26:00 +0100</pubDate><guid>https://jandelgado.github.io/blog/blog/circuitpython-on-an-old-esp32/</guid><description>&lt;figure role="group" aria-describedby="caption-018ccceb13ae4f2ead7061bc6d1b9ec0"&gt;
+ &lt;a href="https://jandelgado.github.io/blog/blog/circuitpython-on-an-old-esp32/images/product.jpg" class="img-link"&gt;
+ &lt;img src="https://jandelgado.github.io/blog/blog/circuitpython-on-an-old-esp32/images/product_hu_97fdba30578d0ed8.jpg"&gt;
+ &lt;/a&gt;
+ &lt;figcaption id="caption-018ccceb13ae4f2ead7061bc6d1b9ec0"&gt;
+ ESP32 driving an e-Ink display
+ &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Recently I got an e-Ink display which I wanted to test with
+&lt;a href="https://circuitpython.org"&gt;CircuitPython&lt;/a&gt;. Since I have some classic ESP32 devkits lying around, I
+wanted to use one of these.&lt;/p&gt;
+&lt;p&gt;In this post I will show how I flashed the microcontroller and how I installed scripts, Python
+modules and other resources to the ESP32 using a serial connection and Wi-Fi.&lt;/p&gt;
+&lt;p&gt;What is the challenge with classic ESP32s? Modern microcontrollers like the Raspberry Pi Pico
+(RP2040) expose a &lt;code&gt;CIRCUITPY&lt;/code&gt; filesystem over USB mass storage (&lt;code&gt;MSC&lt;/code&gt;), so they behave like a USB
+stick. Older boards such as the classic ESP32 (&lt;code&gt;ESP-WROOM-32&lt;/code&gt;) lack this feature, which makes
+copying files to and from the device a bit harder.&lt;/p&gt;</description></item></channel></rss>
