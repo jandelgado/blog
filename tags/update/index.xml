@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Update on JDBlog</title><link>https://jandelgado.github.io/blog/tags/update/</link><description>Recent content in Update on JDBlog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sun, 30 Nov 2025 17:30:39 +0200</lastBuildDate><atom:link href="https://jandelgado.github.io/blog/tags/update/index.xml" rel="self" type="application/rss+xml"/><item><title>Fixing Windows Update the hard way</title><link>https://jandelgado.github.io/blog/blog/fixing-windows-update-the-hard-way/</link><pubDate>Sun, 30 Nov 2025 17:30:39 +0200</pubDate><guid>https://jandelgado.github.io/blog/blog/fixing-windows-update-the-hard-way/</guid><description>&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;&lt;br/&gt;
+Windows 10 refused to install the 22H2 update and none of the usual fixes helped. Eventually, I found
+out, that a file issue on the EFI-partition prevented the update from successfully finishing.
+After a simple fix, the update finally went through successfully.&lt;/p&gt;
+&lt;h2 id="windows-update-refuses-to-install"&gt;Windows update refuses to install&lt;/h2&gt;
+&lt;p&gt;Being the family IT guy unfortunately qualifies me for the thankless job of fixing stubborn Windows
+problems every now and then. This time I was confronted with my moms Windows 10 laptop (Lenovo T470s) not
+installing the &lt;code&gt;KB5066791&lt;/code&gt; &amp;ldquo;22H2&amp;rdquo; update. Every attempt ended abruptly at the very end
+(100% of the installation reported to be finished) with something like &lt;code&gt;we couldn't complete the update, undoing the changes.&lt;/code&gt; (by the way, who exactly is ‘we’? I would have had a couple of questions).&lt;/p&gt;</description></item></channel></rss>

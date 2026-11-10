@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linux on JDBlog</title><link>https://jandelgado.github.io/blog/tags/linux/</link><description>Recent content in Linux on JDBlog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sat, 04 May 2024 22:20:05 +0100</lastBuildDate><atom:link href="https://jandelgado.github.io/blog/tags/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>Random screen freezes on a Thinkpad X260</title><link>https://jandelgado.github.io/blog/blog/random-screen-freezes-on-a-thinkpad-x260/</link><pubDate>Sat, 04 May 2024 22:20:05 +0100</pubDate><guid>https://jandelgado.github.io/blog/blog/random-screen-freezes-on-a-thinkpad-x260/</guid><description>&lt;p&gt;Recently, I upgraded my Thinkpad X260 (i7 Skylake with Intel HD 520 Graphics)
+from Fedora 39 to 40. After the upgrade, I noticed random screen freezes (e.g.
+in Firefox), which lasted up to a few seconds and were extremly annoying. The
+problem occured in X11 with the KMS and Intel-drivers, as well as with Wayland
+(sway). Logs and my investigations with &lt;code&gt;perf&lt;/code&gt; and other tools showed no
+noticeable problems. It drove me crazy. I disabled swap, set &lt;a href="https://wiki.archlinux.org/title/Intel_graphics#Crash/freeze_on_low_power_Intel_CPUs"&gt;kernel
+parameters&lt;/a&gt;,
+and tried other things, but all without success. The random screen freezes
+remained. Almost giving up, I was preparing to install a different
+distribution, I stumbled over &lt;a href="https://www.reddit.com/r/thinkpad/comments/rhbf8m/solution_thinkpad_short_freezes_on_gnulinux/"&gt;this post on
+reddit&lt;/a&gt;,
+which suggests to set the kernel parameter &lt;code&gt;i915.enable_psr&lt;/code&gt; (Panel Self
+Refresh) to &lt;code&gt;0&lt;/code&gt;. Added that to the grub configuration, rebooted, and now the
+freezes are gone - finally.&lt;/p&gt;</description></item><item><title>Clipboard with VNC, libvirt and Qemu</title><link>https://jandelgado.github.io/blog/blog/clipboard-with-vnc-libvirt-and-qemu/</link><pubDate>Sat, 30 Dec 2023 17:53:39 +0200</pubDate><guid>https://jandelgado.github.io/blog/blog/clipboard-with-vnc-libvirt-and-qemu/</guid><description>&lt;p&gt;One real PITA when using virtual machines is getting things like clipboard,
+graphics acceleration etc. up and running. This is a common issue I&amp;rsquo;ve
+encountered with several virtualization products I used in the past (e.g.,
+VirtualBox, VMWare, Qemu).&lt;/p&gt;
+&lt;p&gt;Recently, RedHat &lt;a href="https://bugzilla.redhat.com/show_bug.cgi?id=2030592"&gt;dropped Spice support in RHEL
+9&lt;/a&gt; for virt-manager and
+Qemu. I decided to switch to VNC instead of compiling my own Qemu
+with built-in Spice support. Since I don’t require USB passthrough, sound, or
+other Spice-exclusive features, I thought it was worth (again) a try. After configuring
+VNC, everything worked except for the clipboard integration. However, after
+some research, I successfully resolved this by adding the following XML snippet
+to my machine’s definition (I am using libvirt on Rocky Linux 9):&lt;/p&gt;</description></item><item><title>WifiOnICE @ DB with Linux and my Lenovo X260</title><link>https://jandelgado.github.io/blog/blog/wifionice-@-db-with-linux-and-my-lenovo-x260/</link><pubDate>Mon, 05 Jun 2023 11:45:45 +0100</pubDate><guid>https://jandelgado.github.io/blog/blog/wifionice-@-db-with-linux-and-my-lenovo-x260/</guid><description>&lt;figure role="group" aria-describedby="caption-17df680baa805abc641d05def1f9ccd7"&gt;
+ &lt;a href="https://jandelgado.github.io/blog/blog/wifionice-@-db-with-linux-and-my-lenovo-x260/wifi_gestoert.png" class="img-link"&gt;
+ &lt;img src="https://jandelgado.github.io/blog/blog/wifionice-@-db-with-linux-and-my-lenovo-x260/wifi_gestoert_hu_1e44f02e6cce3d70.png"&gt;
+ &lt;/a&gt;
+ &lt;figcaption id="caption-17df680baa805abc641d05def1f9ccd7"&gt;
+ Authors dramatization of events
+ &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;I&amp;rsquo;m writing this while travelling with Deutsche Bahn to Munich, when I was
+haunted by longly forgotten memories of manual WiFi configurations and tweaking
+sessions: I had a hard time connecting my Lenovo X260 (with Fedora Linux) to
+the ICE&amp;rsquo;s on-board WiFi network.&lt;/p&gt;
+&lt;h2 id="first-problem-deauthentications"&gt;First problem: deauthentications&lt;/h2&gt;
+&lt;p&gt;First I realized that the my notebook was reconnecting all the time. Digging into
+syslog (&lt;code&gt;dmesg -w&lt;/code&gt;), I saw lots of &lt;code&gt;PREV_AUTH_NOT_VALID&lt;/code&gt; messges showing up:&lt;/p&gt;</description></item></channel></rss>

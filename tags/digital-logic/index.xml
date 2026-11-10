@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Digital Logic on JDBlog</title><link>https://jandelgado.github.io/blog/tags/digital-logic/</link><description>Recent content in Digital Logic on JDBlog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sat, 19 Jul 2025 13:43:51 +0100</lastBuildDate><atom:link href="https://jandelgado.github.io/blog/tags/digital-logic/index.xml" rel="self" type="application/rss+xml"/><item><title>Turing Complete: The 'Condition 10' Achievement</title><link>https://jandelgado.github.io/blog/blog/turing-complete-the-condition-10-achievement/</link><pubDate>Sat, 19 Jul 2025 13:43:51 +0100</pubDate><guid>https://jandelgado.github.io/blog/blog/turing-complete-the-condition-10-achievement/</guid><description>&lt;h2 id="the-condition-level-in-turing-complete"&gt;The &amp;lsquo;Condition&amp;rsquo; level in Turing Complete&lt;/h2&gt;
+&lt;p&gt;I recently re-started playing the computer-science game &lt;a href="https://turingcomplete.game"&gt;Turing
+Complete&lt;/a&gt;, where your job is to build and program a
+computer from scratch, starting with simple logic gates like AND, OR or
+NAND, and successively building more complex components until we have a
+functioning computer.&lt;/p&gt;
+&lt;p&gt;The objective of the &lt;em&gt;Condition&lt;/em&gt; level is to create a comparison unit. Such a
+unit takes a byte &lt;code&gt;A&lt;/code&gt; and a mode &lt;code&gt;M&lt;/code&gt; (3 bits) and calculates the output according
+to the mode as&lt;/p&gt;</description></item></channel></rss>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>I915 on JDBlog</title><link>https://jandelgado.github.io/blog/tags/i915/</link><description>Recent content in I915 on JDBlog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sat, 04 May 2024 22:20:05 +0100</lastBuildDate><atom:link href="https://jandelgado.github.io/blog/tags/i915/index.xml" rel="self" type="application/rss+xml"/><item><title>Random screen freezes on a Thinkpad X260</title><link>https://jandelgado.github.io/blog/blog/random-screen-freezes-on-a-thinkpad-x260/</link><pubDate>Sat, 04 May 2024 22:20:05 +0100</pubDate><guid>https://jandelgado.github.io/blog/blog/random-screen-freezes-on-a-thinkpad-x260/</guid><description>&lt;p&gt;Recently, I upgraded my Thinkpad X260 (i7 Skylake with Intel HD 520 Graphics)
+from Fedora 39 to 40. After the upgrade, I noticed random screen freezes (e.g.
+in Firefox), which lasted up to a few seconds and were extremly annoying. The
+problem occured in X11 with the KMS and Intel-drivers, as well as with Wayland
+(sway). Logs and my investigations with &lt;code&gt;perf&lt;/code&gt; and other tools showed no
+noticeable problems. It drove me crazy. I disabled swap, set &lt;a href="https://wiki.archlinux.org/title/Intel_graphics#Crash/freeze_on_low_power_Intel_CPUs"&gt;kernel
+parameters&lt;/a&gt;,
+and tried other things, but all without success. The random screen freezes
+remained. Almost giving up, I was preparing to install a different
+distribution, I stumbled over &lt;a href="https://www.reddit.com/r/thinkpad/comments/rhbf8m/solution_thinkpad_short_freezes_on_gnulinux/"&gt;this post on
+reddit&lt;/a&gt;,
+which suggests to set the kernel parameter &lt;code&gt;i915.enable_psr&lt;/code&gt; (Panel Self
+Refresh) to &lt;code&gt;0&lt;/code&gt;. Added that to the grub configuration, rebooted, and now the
+freezes are gone - finally.&lt;/p&gt;</description></item></channel></rss>

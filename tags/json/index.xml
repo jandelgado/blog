@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Json on JDBlog</title><link>https://jandelgado.github.io/blog/tags/json/</link><description>Recent content in Json on JDBlog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sun, 26 May 2024 20:06:00 +0100</lastBuildDate><atom:link href="https://jandelgado.github.io/blog/tags/json/index.xml" rel="self" type="application/rss+xml"/><item><title>Relaxed JSON parsing in go</title><link>https://jandelgado.github.io/blog/blog/relaxed-json-parsing-in-go/</link><pubDate>Sun, 26 May 2024 20:06:00 +0100</pubDate><guid>https://jandelgado.github.io/blog/blog/relaxed-json-parsing-in-go/</guid><description>&lt;p&gt;In the past I encountered situations, where I needed a relaxed approach to
+parse JSON documents in Go, because of the server side sending occasionally
+unexpected data, which was beyond of my control.&lt;/p&gt;
+&lt;h2 id="case-1-api-inconsistently-returns-an-empty-array-instead-of-null"&gt;Case 1: API inconsistently returns an empty array instead of &lt;code&gt;null&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;When I was implementing a RabbitMQ client as part of my
+&lt;a href="https://github.com/jandelgado/rabtap"&gt;rabtap&lt;/a&gt; RabbitMQ tool, I
+stumbled over the problem, that the &lt;a href="https://rawcdn.githack.com/rabbitmq/rabbitmq-server/v3.13.2/deps/rabbitmq_management/priv/www/api/index.html"&gt;RabbitMQ management
+API&lt;/a&gt;
+returned an empty array (&lt;code&gt;[]&lt;/code&gt;) where an object was
+expected. When trying to unmarshal the JSON into a &lt;code&gt;struct&lt;/code&gt; like e.g.&lt;/p&gt;</description></item></channel></rss>

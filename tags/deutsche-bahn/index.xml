@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Deutsche Bahn on JDBlog</title><link>https://jandelgado.github.io/blog/tags/deutsche-bahn/</link><description>Recent content in Deutsche Bahn on JDBlog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 05 Jun 2023 11:45:45 +0100</lastBuildDate><atom:link href="https://jandelgado.github.io/blog/tags/deutsche-bahn/index.xml" rel="self" type="application/rss+xml"/><item><title>WifiOnICE @ DB with Linux and my Lenovo X260</title><link>https://jandelgado.github.io/blog/blog/wifionice-@-db-with-linux-and-my-lenovo-x260/</link><pubDate>Mon, 05 Jun 2023 11:45:45 +0100</pubDate><guid>https://jandelgado.github.io/blog/blog/wifionice-@-db-with-linux-and-my-lenovo-x260/</guid><description>&lt;figure role="group" aria-describedby="caption-17df680baa805abc641d05def1f9ccd7"&gt;
+ &lt;a href="https://jandelgado.github.io/blog/blog/wifionice-@-db-with-linux-and-my-lenovo-x260/wifi_gestoert.png" class="img-link"&gt;
+ &lt;img src="https://jandelgado.github.io/blog/blog/wifionice-@-db-with-linux-and-my-lenovo-x260/wifi_gestoert_hu_1e44f02e6cce3d70.png"&gt;
+ &lt;/a&gt;
+ &lt;figcaption id="caption-17df680baa805abc641d05def1f9ccd7"&gt;
+ Authors dramatization of events
+ &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;I&amp;rsquo;m writing this while travelling with Deutsche Bahn to Munich, when I was
+haunted by longly forgotten memories of manual WiFi configurations and tweaking
+sessions: I had a hard time connecting my Lenovo X260 (with Fedora Linux) to
+the ICE&amp;rsquo;s on-board WiFi network.&lt;/p&gt;
+&lt;h2 id="first-problem-deauthentications"&gt;First problem: deauthentications&lt;/h2&gt;
+&lt;p&gt;First I realized that the my notebook was reconnecting all the time. Digging into
+syslog (&lt;code&gt;dmesg -w&lt;/code&gt;), I saw lots of &lt;code&gt;PREV_AUTH_NOT_VALID&lt;/code&gt; messges showing up:&lt;/p&gt;</description></item></channel></rss>
